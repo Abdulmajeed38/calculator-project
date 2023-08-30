@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js Calculator</title>
+    <link rel="stylesheet" href="calculator.css"> 
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+    </head>
+    <body>
+    <h1>Javascript Calculator</h1>
+    <div id="main-div" class="dark"> 
+      <div class="screen"><input type="text" id= "operations" readonly=""></div>
+      <div class="mode">
+        <i id="light" class="bi bi-brightness-high" aria-label="change to light mode" onclick="light()"></i>
+        <i id="dark" class="bi bi-moon" aria-label="change to dark mode" onclick="dark()"></i>
+      </div>
+      <div class="calc-operations" id="calc-op">
+        <ul class="main-op">
+          <li id="special-sym" onclick= "clearScreen('')">AC</li>
+          <li id="special-sym" onclick= "display('(')">(</li>
+          <li id="special-sym" onclick= "display(')')">)</li>
+          <li id="math-sym" onclick= "display('/')">÷</li>
+          <li class="digits" onclick= "display(7)">7</li>
+          <li class="digits" onclick= "display(8)">8</li>
+          <li class="digits" onclick= "display(9)">9</li>
+          <li id="math-sym" onclick= "display('*')">x</li>
+          <li class="digits" onclick= "display(4)">4</li>
+          <li class="digits" onclick= "display(5)">5</li>
+          <li class="digits" onclick= "display(6)">6</li>
+          <li id="math-sym" onclick= "display('-')">-</li>
+          <li class="digits" onclick= "display(1)">1</li>
+          <li class="digits" onclick= "display(2)">2</li>
+          <li class="digits" onclick= "display(3)">3</li>
+          <li id="math-sym" onclick="display('+')">+</li>
+          <li class="clear" id="special-sym" onclick="cancel('')">c</li>
+          <li class="digits" onclick="display(0)">0</li>
+          <li class="digits" onclick="display('.')">.</li>
+          <li class="equals" id="math-sym" onclick="solve()">=</li>
+        </ul>
+        </div>
+    </div>
+    <script src="calculator.js"></script>
+    </body>
+    </html>
