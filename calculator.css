@@ -133,10 +133,6 @@ textarea:focus, input:focus {
 .main-op li:hover {
     cursor: pointer;
 }
-button {
-    background: #2f2f2f;
-    color: white;
-}
 .digits {
     display: block;
     border: 1px solid #202020;
