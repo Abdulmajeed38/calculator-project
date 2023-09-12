@@ -110,8 +110,7 @@ numberButtons.forEach(li => {
                 calculator.clear();
                 calculator.updateDisplay();
             })
-            deleteButton.addEventListener('click', li => {
-                // alert('changes'); 
+            deleteButton.addEventListener('click', li => { 
                 calculator.delete();
                 calculator.updateDisplay();
             })
