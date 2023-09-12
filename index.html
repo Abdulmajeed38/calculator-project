@@ -12,34 +12,37 @@
     </head>
     <body>
     <h1>Javascript Calculator</h1>
-    <div id="main-div" class="dark"> 
-      <div class="screen"><input type="text" id= "operations" readonly=""></div>
+    <div id="main-div" class="light"> 
+      <div class="screen">
+        <input type="text"id="previous-display" readonly=""/>
+        <input type="text" id= "operations" readonly="" />
+      </div>
       <div class="mode">
         <i id="light" class="bi bi-brightness-high" aria-label="change to light mode" onclick="light()"></i>
         <i id="dark" class="bi bi-moon" aria-label="change to dark mode" onclick="dark()"></i>
       </div>
       <div class="calc-operations" id="calc-op">
         <ul class="main-op">
-          <li id="special-sym" onclick= "clearScreen('')">AC</li>
-          <li id="special-sym" onclick= "display('(')">(</li>
-          <li id="special-sym" onclick= "display(')')">)</li>
-          <li id="math-sym" onclick= "display('/')">÷</li>
-          <li class="digits" onclick= "display(7)">7</li>
-          <li class="digits" onclick= "display(8)">8</li>
-          <li class="digits" onclick= "display(9)">9</li>
-          <li id="math-sym" onclick= "display('*')">x</li>
-          <li class="digits" onclick= "display(4)">4</li>
-          <li class="digits" onclick= "display(5)">5</li>
-          <li class="digits" onclick= "display(6)">6</li>
-          <li id="math-sym" onclick= "display('-')">-</li>
-          <li class="digits" onclick= "display(1)">1</li>
-          <li class="digits" onclick= "display(2)">2</li>
-          <li class="digits" onclick= "display(3)">3</li>
-          <li id="math-sym" onclick="display('+')">+</li>
-          <li class="clear" id="special-sym" onclick="cancel('')">c</li>
-          <li class="digits" onclick="display(0)">0</li>
-          <li class="digits" onclick="display('.')">.</li>
-          <li class="equals" id="math-sym" onclick="solve()">=</li>
+          <li class="clear-All" id="special-sym">AC</li>
+          <li   id="special-sym">(</li>
+          <li   id="special-sym">)</li>
+          <li class="data-operations" id="math-sym">÷</li>
+          <li data-number class="digits">7</li>
+          <li data-number class="digits">8</li>
+          <li data-number class="digits">9</li>
+          <li  class="data-operations" id="math-sym">x</li>
+          <li data-number class="digits">4</li>
+          <li data-number class="digits">5</li>
+          <li data-number class="digits">6</li>
+          <li  class="data-operations" id="math-sym">-</li>
+          <li data-number class="digits">1</li>
+          <li data-number class="digits">2</li>
+          <li data-number class="digits">3</li>
+          <li class="data-operations" id="math-sym">+</li>
+          <li class="delete" id="special-sym">c</li>
+          <li data-number class="digits">0</li>
+          <li data-number class="digits">.</li>
+          <li class="equals" id="math-sym">=</li>
         </ul>
         </div>
     </div>
