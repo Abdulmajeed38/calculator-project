@@ -5,9 +5,9 @@ class Calculator {
         this.clear();
     } 
     clear() {
-        this.currentDisplay = '0';
+        this.currentDisplay = '';
         this.previousDisplay = '';
-        this.operation = '';
+        this.operation = ' ';
     }
    delete() {
       this.currentDisplay = this.currentDisplay.toString().substr(0, this.currentDisplay.length - 1);
@@ -21,18 +21,17 @@ class Calculator {
       } 
    }
    selectOperation(operation) {
-    let lastValue = this.previousDisplay.slice(-1);
+    if (this.currentDisplay === '') return;
      if (this.previousDisplay !== '') { 
-        if (lastValue) {
-            lastValue = this.previousDisplay; 
-            console.log('replaces current operand')  
-        }  
         this.solve(); 
-     }    
-     this.operation = operation;
-     this.previousDisplay = this.currentDisplay + lastValue;
-     this.currentDisplay = '';   
-   }
+     }
+
+     this.operation = operation; 
+     this.previousDisplay = this.currentDisplay;
+     console.log('correct sequence')
+     this.currentDisplay = '';
+    
+ }
    solve() {
       let evaluation;
       const prev = parseFloat(this.previousDisplay);
@@ -58,16 +57,18 @@ class Calculator {
       this.operation = ''
       this.previousDisplay = ""; 
    }
-   showDisplayNumber(number, operation) {
+   showDisplayNumber(number) {
     const floatNumber = parseFloat(number);
      if (isNaN(floatNumber)) return '';
      
-     return floatNumber.toLocaleString('en');
+     return floatNumber;
    }
    updateDisplay() {
      this.currentDisplayTextElement.value = this.showDisplayNumber(this.currentDisplay);
-     if (this.operation !== null) {
+     if (this.operation != null) {
         this.previousDisplayTextElement.value = `${this.showDisplayNumber(this.previousDisplay)} ${this.operation}`;
+     } else {
+        this.previousDisplayTextElement.value = '';
      }
    }
 }
@@ -78,7 +79,7 @@ const deleteButton = document.querySelector(['.delete']);
 const numberButtons = document.querySelectorAll(['.digits']);
 const mathOperands = document.querySelectorAll(['.data-operations']);
 const equalsButton = document.querySelector(['.equals']);
-
+// let mathOperators = ["+"| "-"|"x"| "÷"];
 const calculator = new Calculator(previousDisplayTextElement, currentDisplayTextElement);
 
 numberButtons.forEach(li => {
