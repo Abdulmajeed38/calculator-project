@@ -22,15 +22,19 @@ class Calculator {
    }
    selectOperation(operation) {
     if (this.currentDisplay === '') return;
-     if (this.previousDisplay !== '') { 
-        this.solve(); 
-     }
+     
+    const prevDisplayString = this.previousDisplay.toString();
+    const fullDisplayString = prevDisplayString + operation 
+    const lastChar = fullDisplayString[fullDisplayString.length - 1];
+    const operators = ['+', '-', '÷', 'x'];
 
-     this.operation = operation; 
-     this.previousDisplay = this.currentDisplay;
-     console.log('correct sequence')
-     this.currentDisplay = '';
-    
+    if (this.previousDisplay !== '') { 
+        this.solve(); 
+      } 
+      
+    this.previousDisplay = this.currentDisplay;
+    this.operation = operation; 
+    this.currentDisplay = '';
  }
    solve() {
       let evaluation;
@@ -57,6 +61,24 @@ class Calculator {
       this.operation = ''
       this.previousDisplay = ""; 
    }
+   evaluation() {
+       this.currentDisplayTextElement.value = '';
+       let solve;
+       if (this.currentDisplay !== '') {
+           solve = this.currentDisplay / 100;
+           this.currentDisplay = solve;
+       }
+       this.currentDisplayTextElement.value = solve;
+   }
+   neg() {
+    this.currentDisplayTextElement.value = '';
+    let solveNeg;
+    if (this.currentDisplay !== '') {
+        solveNeg = -this.currentDisplay;
+        this.currentDisplay = solveNeg;
+    }
+    this.currentDisplayTextElement.value = solveNeg;
+   } 
    showDisplayNumber(number) {
     const floatNumber = parseFloat(number);
      if (isNaN(floatNumber)) return '';
@@ -79,7 +101,9 @@ const deleteButton = document.querySelector(['.delete']);
 const numberButtons = document.querySelectorAll(['.digits']);
 const mathOperands = document.querySelectorAll(['.data-operations']);
 const equalsButton = document.querySelector(['.equals']);
-// let mathOperators = ["+"| "-"|"x"| "÷"];
+const negative = document.querySelector('.negative');
+const percentage = document.querySelector('.percentage');
+
 const calculator = new Calculator(previousDisplayTextElement, currentDisplayTextElement);
 
 numberButtons.forEach(li => {
@@ -106,6 +130,12 @@ numberButtons.forEach(li => {
                 calculator.delete();
                 calculator.updateDisplay();
             })
+        percentage.addEventListener('click', () => {
+                calculator.evaluation(); 
+            }) 
+        negative.addEventListener('click', () => {
+                calculator.neg();
+            })        
 
      //THEME       
     const darkTheme = document.getElementById('dark');
