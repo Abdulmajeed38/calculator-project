@@ -4,14 +4,17 @@ class Calculator {
         this.previousDisplayTextElement = previousDisplayTextElement;
         this.clear();
     } 
+
     clear() {
         this.currentDisplay = '';
         this.previousDisplay = '';
         this.operation = ' ';
     }
+
    delete() {
       this.currentDisplay = this.currentDisplay.toString().substr(0, this.currentDisplay.length - 1);
    }
+
    appendNumber(number) { 
     if(number === "." && this.currentDisplay.includes('.')) return;
       if (this.currentDisplay === '0') {
@@ -20,12 +23,13 @@ class Calculator {
         this.currentDisplay = this.currentDisplay.toString() +  number.toString();
       } 
    }
+
    selectOperation(operation) {
     if (this.currentDisplay === '') return;
      
     const prevDisplayString = this.previousDisplay.toString();
     const fullDisplayString = prevDisplayString + operation 
-    const lastChar = fullDisplayString[fullDisplayString.length - 1];
+    
     const operators = ['+', '-', '÷', 'x'];
 
     if (this.previousDisplay !== '') { 
@@ -35,7 +39,40 @@ class Calculator {
     this.previousDisplay = this.currentDisplay;
     this.operation = operation; 
     this.currentDisplay = '';
- }
+
+     //else {
+        //         // this.previousDisplay = this.currentDisplay;
+        //         this.operation = this.operation.replace(lastChar, operation);
+        //         console.log('correct')
+        //         // this.currentDisplay = '';
+        //     } //else {
+            //     this.previousDisplay = this.currentDisplay;
+            //     this.operation = operation; 
+            //     this.currentDisplay = '';
+            // }
+  
+    //    this.previousDisplay = this.currentDisplay;
+    //    this.operation = operation; 
+    //    this.currentDisplay = '';
+    //    this.updateDisplay();
+    //  }
+    // this.previousDisplay = this.currentDisplay;
+        
+    //    this.currentDisplay = '';
+  
+
+     
+    //  this.previousDisplay = changeOperation;
+    //  console.log('correct sequence')
+     //  let changeOperation = this.currentDisplay + this.previousDisplay.replace(/([÷x+-])+/g, );
+  }
+//   replace(operation) {
+//     const rep = this.previousDisplay + this.operation;
+//     const lastChar = this.previousDisplayTextElement[this.previousDisplayTextElement.length - 1];
+//      if (this.previousDisplayTextElement !== '' && this.previousDisplayTextElement === rep) {
+//         this.operation = rep.replace(lastChar, operation);
+//      } 
+//   }
    solve() {
       let evaluation;
       const prev = parseFloat(this.previousDisplay);
@@ -65,7 +102,7 @@ class Calculator {
        this.currentDisplayTextElement.value = '';
        let solve;
        if (this.currentDisplay !== '') {
-           solve = this.currentDisplay / 100;
+           solve = Math.pow(this.currentDisplay, 2);
            this.currentDisplay = solve;
        }
        this.currentDisplayTextElement.value = solve;
@@ -135,7 +172,7 @@ numberButtons.forEach(li => {
             }) 
         negative.addEventListener('click', () => {
                 calculator.neg();
-            })        
+            })            
 
      //THEME       
     const darkTheme = document.getElementById('dark');

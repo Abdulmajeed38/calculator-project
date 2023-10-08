@@ -4,10 +4,11 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color: #7F8C8D;
 }
 h1 {
-    color: whitesmoke;
-    background-color: #2f2f2f;
+    color: rgb(23, 32, 42);
+    background-color:#C5E1A5;
     text-align: center;
     font-size: 3rem;
     padding: 15px;
@@ -24,6 +25,7 @@ h1 {
     border: 1px solid var(--bg1);
     border-radius: 13px;
     box-shadow: 2px 2px 2px gray;
+
     overflow: hidden;
 } 
 .screen {
